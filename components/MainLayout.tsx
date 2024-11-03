@@ -35,14 +35,17 @@ const MainLayout: React.FC<MainLayoutProps> = ({ children }) => {
           style={{ flex: 1, minWidth: 0 }}
         />
       </Header>
-      <Content style={{padding: '0 48px', minHeight: "100vh", background: "#f0fdfa"}}>
-        <Breadcrumb style={{ margin: '16px 0' }} items={breadcrumbItems} />
+      {/* <Content style={{padding: '0 48px', minHeight: "100vh", background: "#f0fdfa"}}> */}
+      <Content style={{padding: '0 48px', minHeight: "100vh", background: '#F0F8FF'}}>
+        {/* <Breadcrumb style={{ margin: '16px 0' }} items={breadcrumbItems} /> */}
         <div
           style={{
+            marginTop: 24,
             background: colorBgContainer,
             minHeight: 280,
             padding: 24,
-            borderRadius: borderRadiusLG,
+            // borderRadius: borderRadiusLG,
+            borderRadius: '12px', boxShadow: '0 4px 12px rgba(0,0,0,0.05)'
           }}
         >
           {children}
