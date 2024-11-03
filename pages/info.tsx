@@ -1,52 +1,31 @@
 import React from 'react';
 import MainLayout from '@/components/MainLayout';
-import { Layout, Typography, Card, List, Row, Col, ConfigProvider } from 'antd';
-import { BulbOutlined, WindowsOutlined, HomeOutlined, MessageOutlined, ReadOutlined, ExperimentOutlined } from '@ant-design/icons';
-
-const { Content } = Layout;
+import { Typography, Card, List, Row, Col,} from 'antd';
+import { BulbOutlined, WindowsOutlined, HomeOutlined, MessageOutlined, ReadOutlined, ExperimentOutlined, InfoCircleOutlined } from '@ant-design/icons';
+;
 const { Title, Paragraph, Text } = Typography;
-
-const tealTheme = {
-  token: {
-    colorPrimary: '#20B2AA',
-    colorLink: '#20B2AA',
-  },
-};
 
 const cardColors = ['#FFE0E0', '#E0FFE0', '#E0E0FF', '#E0F7FA'];
 
 const cardStyle = (index: number) => ({
-  background: cardColors[index % cardColors.length],
-  boxShadow: '0 2px 8px rgba(0,0,0,0.05)',
-  borderRadius: '8px',
-  marginBottom: '24px',
+    background: cardColors[index % cardColors.length],
+    boxShadow: '0 2px 8px rgba(0,0,0,0.05)',
+    borderRadius: '8px',
+    marginBottom: '24px',
 });
 
 const SalePage = () => {
   return (
     <MainLayout>
-      <Title level={1} style={{ textAlign: 'center', color: '#0d9488', marginBottom: '24px' }}>
+        <Title level={1} style={{ textAlign: 'center', color: '#0d9488', marginBottom: '24px' }}>
             Guía de Cuidado del Paciente
-          </Title>
-      {/* <h1 style={{color: "#0d9488"}}>¿Qué hacer?</h1> */}
-      {/* <Card style={{width: "full"}}>
-        <Card.Meta
-          // avatar={<Avatar src="https://api.dicebear.com/7.x/miniavs/svg?seed=1" />}
-          title="Manejo del Ambiente"
-          description={
-            <>
-              <p>Cómo ajustar el entorno del paciente</p>
-            </>
-          }
-        />
-        <p>Ajustar la iluminación según la hora del día</p>
-      </Card> */}
-      <Card style={{background: "#E0F7FA", boxShadow: '0 2px 8px rgba(0,0,0,0.05)', borderRadius: '8px', marginBottom: '24px',}}>
-              <Title level={3}>¿Qué hacer?</Title>
-              <Paragraph>
+        </Title>
+        <Card style={{background: "#E0F7FA", boxShadow: '0 2px 8px rgba(0,0,0,0.05)', borderRadius: '8px', marginBottom: '24px',}}>
+            <Title level={3}>¿Qué hacer?</Title>
+            <Paragraph>
                 Esta guía te ayudará a manejar el ambiente del paciente y realizar ejercicios de estimulación.
-              </Paragraph>
-            </Card>
+            </Paragraph>
+        </Card>
       
       <Card style={cardStyle(1)}>
               <Title level={3}>Manejo del Ambiente</Title>
