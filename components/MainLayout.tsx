@@ -10,15 +10,12 @@ type MainLayoutProps = {
 
 const menuItems = [
   { key: '0', label: <Link href="/">Home</Link> },
-  { key: '1', label: <Link href="/products">Productos</Link> },
-  { key: '2', label: <Link href="/inventory">Inventario</Link> },
-  { key: '3', label: <Link href="/sales">Ventas del Día</Link> },
-  { key: '4', label: <Link href="/sale-product">Venta de Producto</Link> },
+  { key: '1', label: <Link href="/info">Info</Link> }
 ];
 
 // Nuevo arreglo para Breadcrumb
 const breadcrumbItems = [
-  { title: 'xeed' }, // Cambia esto si quieres añadir más elementos en el breadcrumb
+  { title: '/' }, // Cambia esto si quieres añadir más elementos en el breadcrumb
 ];
 
 const MainLayout: React.FC<MainLayoutProps> = ({ children }) => {
@@ -28,17 +25,17 @@ const MainLayout: React.FC<MainLayoutProps> = ({ children }) => {
 
   return (
     <Layout>
-      <Header style={{ display: 'flex', alignItems: 'center' }}>
+      <Header style={{ display: 'flex', alignItems: 'center', background: "white" }}>
         <div className="demo-logo" />
         <Menu
-          theme="dark"
+          theme="light"
           mode="horizontal"
-          defaultSelectedKeys={['0']} // Cambia según el elemento predeterminado que quieras
+          // defaultSelectedKeys={["0"]} // Cambia según el elemento predeterminado que quieras
           items={menuItems}
           style={{ flex: 1, minWidth: 0 }}
         />
       </Header>
-      <Content style={{ padding: '0 48px', height: "100vh"}}>
+      <Content style={{padding: '0 48px', minHeight: "100vh", background: "#f0fdfa"}}>
         <Breadcrumb style={{ margin: '16px 0' }} items={breadcrumbItems} />
         <div
           style={{
@@ -52,7 +49,7 @@ const MainLayout: React.FC<MainLayoutProps> = ({ children }) => {
         </div>
       </Content>
       <Footer style={{ textAlign: 'center' }}>
-        Ant Design ©{new Date().getFullYear()} Creado por Ant UED
+        Titulo ©{new Date().getFullYear()} Creado Krishna Pavez Torres
       </Footer>
     </Layout>
   );

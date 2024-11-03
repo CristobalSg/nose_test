@@ -5,7 +5,7 @@ import type { NextPage } from 'next';
 const Home: NextPage = () => {
   return (
     <MainLayout>
-      <h1 className="text-3xl font-bold">Bienvenido a tu aplicación Next.js</h1>
+      <h1 className="text-3xl font-bold">Bienvenido...</h1>
     </MainLayout>
   );
 };
