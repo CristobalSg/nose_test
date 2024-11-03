@@ -141,12 +141,12 @@ const contentStyle = {
 };
 
 const contentContainerStyle = {
-  marginTop: 24,
-  background: 'white',
-  minHeight: 280,
-  padding: 24,
-  borderRadius: '12px',
-  boxShadow: '0 4px 12px rgba(0,0,0,0.05)',
+    marginTop: 24,
+    background: 'white',
+    minHeight: 280,
+    padding: 24,
+    borderRadius: '12px',
+    boxShadow: '0 4px 12px rgba(0,0,0,0.05)',
 };
 
 export default MainLayout;

@@ -1,5 +1,4 @@
 import React from 'react';
-import MainLayout from '@/components/MainLayout';
 import { Typography, Card, List, Row, Col } from 'antd';
 import {
   BulbOutlined,
@@ -45,7 +44,7 @@ const resources = [
   {
     title: 'Ejercicios de Memoria',
     description: 'Actividades para estimular la memoria',
-    imgSrc: 'https://lh3.googleusercontent.com/p/AF1QipP5M43_RYJQ7umCxZzgiIw-qo7J9Og4YtndhnuI=s680-w680-h510',
+    imgSrc: 'https://media-public.canva.com/qv-Jk/MADZ40qv-Jk/2/tl.png',
   },
   {
     title: 'Terapia Ocupacional',
@@ -55,7 +54,7 @@ const resources = [
   {
     title: 'Estimulación Sensorial',
     description: 'Técnicas de estimulación de los sentidos',
-    imgSrc: 'https://lh3.googleusercontent.com/p/AF1QipP5M43_RYJQ7umCxZzgiIw-qo7J9Og4YtndhnuI=s680-w680-h510',
+    imgSrc: 'https://media-public.canva.com/wEhQo/MAFsYCwEhQo/1/tl.png',
   },
 ];
 
