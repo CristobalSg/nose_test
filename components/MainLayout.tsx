@@ -1,5 +1,5 @@
 import React from 'react';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Layout, Button, Drawer } from 'antd';
 import { HomeOutlined, InfoCircleOutlined, MenuOutlined } from '@ant-design/icons';
 import Link from 'next/link';
@@ -11,11 +11,25 @@ type MainLayoutProps = {
 };
 
 const MainLayout: React.FC<MainLayoutProps> = ({ children }) => {
-    const [selected, setSelected] = useState('');
+  const [selected, setSelected] = useState('');
+  const [contentPadding, setContentPadding] = useState('0 48px');
 
   const handleSelect = (value: string) => {
     setSelected(value);
   };
+
+  // Manejo del cambio de tamaño de la ventana
+  useEffect(() => {
+    const handleResize = () => {
+      setContentPadding(window.innerWidth < 768 ? '0 24px' : '0 48px');
+    };
+
+    handleResize(); // Llama la función al cargar el componente
+    window.addEventListener('resize', handleResize); // Escucha el cambio de tamaño de la ventana
+
+    return () => window.removeEventListener('resize', handleResize); // Limpieza del efecto
+  }, []);
+
   return (
     <Layout>
       <Header style={headerStyle}>
@@ -29,48 +43,48 @@ const MainLayout: React.FC<MainLayoutProps> = ({ children }) => {
         </div>
 
         <nav className="nav-buttons" style={navStyle}>
-            <Link href="/" passHref>
-                <Button
-                type="link"
-                style={{
-                    fontWeight: selected === 'home' ? 'bold' : 'normal',
-                    textDecoration: selected === 'home' ? 'underline' : 'none',
-                    color: 'black',
-                    fontSize: '1.25em',
-                }}
-                onClick={() => handleSelect('home')}
-                >
-                INICIO
-                </Button>
-            </Link>
-            <Link href="/quehacer" passHref>
-                <Button
-                type="link"
-                style={{
-                    fontWeight: selected === 'quehacer' ? 'bold' : 'normal',
-                    textDecoration: selected === 'quehacer' ? 'underline' : 'none',
-                    color: 'black',
-                    fontSize: '1.25em',
-                }}
-                onClick={() => handleSelect('quehacer')}
-                >
-                ¿QUÉ HACER?
-                </Button>
-            </Link>
-            <Link href="/info" passHref>
-                <Button
-                type="link"
-                style={{
-                    fontWeight: selected === 'info' ? 'bold' : 'normal',
-                    textDecoration: selected === 'info' ? 'underline' : 'none',
-                    color: 'black',
-                    fontSize: '1.25em',
-                }}
-                onClick={() => handleSelect('info')}
-                >
-                INFORMACIÓN
-                </Button>
-            </Link>
+          <Link href="/" passHref>
+            <Button
+              type="link"
+              style={{
+                fontWeight: selected === 'home' ? 'bold' : 'normal',
+                textDecoration: selected === 'home' ? 'underline' : 'none',
+                color: 'black',
+                fontSize: '1.25em',
+              }}
+              onClick={() => handleSelect('home')}
+            >
+              INICIO
+            </Button>
+          </Link>
+          <Link href="/quehacer" passHref>
+            <Button
+              type="link"
+              style={{
+                fontWeight: selected === 'quehacer' ? 'bold' : 'normal',
+                textDecoration: selected === 'quehacer' ? 'underline' : 'none',
+                color: 'black',
+                fontSize: '1.25em',
+              }}
+              onClick={() => handleSelect('quehacer')}
+            >
+              ¿QUÉ HACER?
+            </Button>
+          </Link>
+          <Link href="/info" passHref>
+            <Button
+              type="link"
+              style={{
+                fontWeight: selected === 'info' ? 'bold' : 'normal',
+                textDecoration: selected === 'info' ? 'underline' : 'none',
+                color: 'black',
+                fontSize: '1.25em',
+              }}
+              onClick={() => handleSelect('info')}
+            >
+              INFO
+            </Button>
+          </Link>
         </nav>
 
         {/* Botón de menú para pantallas pequeñas */}
@@ -92,7 +106,7 @@ const MainLayout: React.FC<MainLayoutProps> = ({ children }) => {
         </Drawer>
       </Header>
 
-      <Content style={contentStyle}>
+      <Content style={{ ...contentStyle, padding: contentPadding }}>
         <div style={contentContainerStyle}>
           {children}
         </div>
@@ -134,7 +148,6 @@ const navStyle = {
 };
 
 const contentStyle = {
-  padding: '0 48px',
   minHeight: '100vh',
   background: '#F0F8FF',
   fontSize: '1.25em'

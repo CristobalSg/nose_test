@@ -1,5 +1,10 @@
 import { Card, Row, Col, Typography, Image } from "antd";
 import { CSSProperties } from "react";
+import QuestionCard from '../components/QuestionCard'; 
+import ImportantCard from '../components/ImportantCard'; 
+import DynamicTitle  from "../components/TitleWithLinesStyle"
+import ConversationItem from '../components/ConversationItem';
+import CardGrid from '../components/CardGrid';
 
 const { Title, Text, Paragraph } = Typography;
 
@@ -51,77 +56,96 @@ const centeredTitleStyle: CSSProperties = {
   marginBottom: "16px",
 };
 
-// Estilo para el título principal con líneas decorativas
-const titleWithLinesStyle: CSSProperties = {
-    fontFamily: 'Montserrat, sans-serif',
-    // fontSize: "1.25em",
-  display: "flex",
-  alignItems: "center",
-  justifyContent: "center",
-  fontSize: "1.8em",
-  color: "#333",
-  marginBottom: "16px",
-};
-
 export default function Component() {
+     const exampleQuestions = [
+    "¿Cuál es la fecha de hoy? (Día-mes-año)",
+    "¿En qué día de la semana estamos?",
+    "¿En dónde estamos? (edificio, ciudad y comuna)",
+    "¿En qué estación estamos?",
+    "¿Cómo te llamas?",
+    "¿Cuántos años tienes?",
+    "¿En qué año naciste?",
+    "¿Dónde vive?",
+    "¿Con quién vive?",
+    "¿Cuáles son los familiares más cercanos?"
+  ];
+
+  const additionalImages = [
+    "https://media-public.canva.com/IRSUI/MAEEhtIRSUI/1/tl.jpg",
+    "https://media-public.canva.com/QVS5o/MAEnWaQVS5o/1/tl.png",
+    "https://media-public.canva.com/pwM9A/MAFDdwpwM9A/1/tl.png",
+    "https://media-public.canva.com/O4lQw/MAFsk-O4lQw/1/tl.png"
+  ];
+
   return (
     <>
-      <div className="text-center space-y-2">
-        {/* Título principal con líneas decorativas */}
-        <div style={titleWithLinesStyle}>
-          <span style={{ borderBottom: "1px solid #333", width: "20%" }}></span>
-          <Title level={1} className="text-primary" style={{ margin: "0 10px" }}>
-            ¿Qué hacer con tu familiar durante la visita en el hospital?
-          </Title>
-          <span style={{ borderBottom: "1px solid #333", width: "20%" }}></span>
-        </div>
-        
+        <DynamicTitle
+            mainTitle="¿Qué hacer con tu familiar durante la visita en el hospital?"
+            subtitle="Manejo ambiental"
+            paragraphText="Modificar el ambiente en el cual se encuentra el paciente, ayudará a que su nivel de conciencia sea óptimo, además, ayudará al usuario a orientarse en relación a si es de día o de noche."
+        />
+
+        <Title level={1} style={{textAlign: "center", marginBottom: "50px"}}>¿Cómo hacerlo?</Title>
+
+        <CardGrid cardData={cardData} />
+
         <div className="space-y-1">
-          <Title level={2} className="font-semibold">Manejo ambiental</Title>
-          <Paragraph  style={{ fontSize: '1.25em' }}>
-            Modificar el ambiente en el cual se encuentra el paciente, ayudará a que su nivel de conciencia sea
-            óptimo, además, ayudará al usuario a orientarse en relación a si es de día o de noche.
-          </Paragraph>
-        </div>
-      </div>
-
-      <Title level={3} style={{textAlign: "center", marginBottom: "50px"}}>¿Cómo hacerlo?</Title>
-
-      <Row gutter={[16, 16]} justify="center">
-        {cardData.map((card) => (
-          <Col xs={24} sm={12} md={8} lg={8} key={card.key}>
-            <Card style={{ ...cardStyle, background: card.background }}>
-              <div className="flex justify-center mb-4">
-                <div className="w-20 h-20 rounded-full bg-white/90 flex items-center justify-center">
-                  {/* Aquí podrías agregar iconos si los necesitas */}
-                </div>
-              </div>
-
-              {/* Título centrado */}
-              <Title level={3} style={centeredTitleStyle}>{card.title}</Title>
-
-              {/* Contenedor de la imagen con altura fija */}
-              <div style={{ height: '200px', display: 'flex', justifyContent: 'center', marginBottom: '16px' }}>
-                <Image
-                  width={"100%"}
-                  height={"100%"}
-                  style={{ objectFit: 'contain' }}
-                  src={card.imgSrc}
-                />
-              </div>
-
-              <Text style={{ fontSize: '1.25em' }} className="text-sm">{card.description}</Text>
-            </Card>
-          </Col>
-        ))}
-      </Row>
-      <div className="space-y-1">
           <Title level={2} className="font-semibold">Terapia de orientación a la realidad</Title>
           <Paragraph  style={{ fontSize: '1.25em', marginTop: "16px"}}>
             Técnicas mediante las cuales la persona tomará conciencia de su situación en el tiempo, espacio 
             y persona. proporcionando a la persona una mejor comprensión de sí mismo y del mundo que le rodea.
           </Paragraph>
         </div>
+
+        <QuestionCard
+            title="Preguntar"
+            imageUrl="https://media-public.canva.com/pwM9A/MAFDdwpwM9A/1/tl.png"
+            description="Realiza preguntas relacionadas con la persona, el espacio y el tiempo"
+            // exampleQuestions={exampleQuestions}
+            additionalMessage="Puedes apoyar este proceso con ayuda de fotos, calendario o algún otro objeto que sea familiar al usuario"
+            additionalImages={additionalImages}
+        />
+
+        <ImportantCard
+            title="IMPORTANTE"
+            imageUrl="https://media-public.canva.com/as-LM/MAElCNas-LM/1/tl.png"
+            description="Si el usuario no responde de manera correcta puedes darle pistas, darle un tiempo, y en caso de errar de nuevo, le entregas la respuesta correcta."
+        />
+
+        <Title level={3}>También puedes: </Title>
+
+        <ConversationItem 
+            imageSrc="https://media-public.canva.com/oPB90/MAFdMNoPB90/1/tl.png" 
+            text="Conversar o contarle sobre noticias actuales, que sean del agrado del usuario (puedes apoyarte de un diario o una revista)."
+        />
+        <ConversationItem 
+            imageSrc="https://media-public.canva.com/eLALQ/MAFkqpeLALQ/1/tl.png" 
+            text="Conversar o contarle sobre temas relacionados a su hogar." 
+            reverse={true} // To reverse the order of image and text
+        />
+        <ConversationItem 
+            imageSrc="https://media-public.canva.com/fMqvE/MAFb2lfMqvE/1/tl.png" 
+            text="Conversar o contarle sobre temas relacionados a su Familia (puedes apoyarte de fotos)."
+        />
+        
+        <Title level={4} style={{display: "flex", alignItems: 'center', justifyContent: 'center'}}>
+        Esto lo puedes realizar independiente del estado de conciencia que tenga tu familiar 
+        </Title>
+
+        <DynamicTitle
+            mainTitle="¿Qué evitar hacer con tu familiar durante la visita en el hospital?"
+        />
+
+        <ConversationItem 
+            imageSrc="https://media-public.canva.com/aeAkI/MAFXLQaeAkI/1/tl.png" 
+            text=" Evita conversaciones con temas problemáticos, tristes o negativos, que pudiesen alterar al usuario. "
+        />
+        
+        <DynamicTitle
+            mainTitle="¿Qué ejercicios y actividades puedo hacer con mi familiar durante la visita?"
+            subtitle="Según indicación medica, puedes realizar ejercicios de movilidad en cama, completar cuadernillos de estimulación cognitiva, o alguna otra actividad."
+            paragraphText="A continuación ¡te enseñamos cuales!"
+        />
     </>
   );
 }

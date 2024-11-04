@@ -1,6 +1,5 @@
 import Link from 'next/link';
 import React from 'react';
-import MainLayout from '@/components/MainLayout';
 import { Row, Col, Typography, Button, Card, Image } from 'antd';
 import type { NextPage } from 'next';
 
@@ -11,17 +10,17 @@ const Home: NextPage = () => {
     <>
       <Row gutter={[16, 16]}>
         <Col xs={24} md={16}>
-          <div style={{ height: '300px', position: 'relative' }}>
+          <div style={{ height: '400px', position: 'relative' }}>
             <Image
               width={"100%"}
               height={"100%"}
               style={{ objectFit: 'cover' }}
-              src="https://lh3.googleusercontent.com/p/AF1QipP5M43_RYJQ7umCxZzgiIw-qo7J9Og4YtndhnuI=s680-w680-h510"
+              src="https://arc-anglerfish-arc2-prod-copesa.s3.amazonaws.com/public/W7NHXNFA2RCNXHZ7MRS2ZTSICE.jpg"
             />
           </div>
         </Col>
         <Col xs={24} md={8}>
-          <div style={{ height: '300px', position: 'relative' }}>
+          <div style={{ height: '400px', position: 'relative' }}>
             <Image
               width={"100%"}
               height={"100%"}
@@ -35,7 +34,7 @@ const Home: NextPage = () => {
       <Row gutter={[16, 16]} style={{ marginTop: '24px' }}>
         <Col xs={24} md={16}>
           <Card>
-            <Paragraph style={{ fontSize: '1.25em' }}>
+            <Paragraph style={{ fontSize: '1.25em', fontFamily: 'Montserrat, sans-serif'}}>
               Esta página es creada con la finalidad de entregar información que guíe a los familiares de los pacientes hospitalizados, en relación a como realizar, una visita enriquecedora para el proceso de rehabilitación del paciente.
             </Paragraph>
             {/* Contenedor flexible para el botón */}
@@ -66,7 +65,7 @@ const Home: NextPage = () => {
                   width={"100%"}
                   height={"100%"}
                   style={{ objectFit: 'cover' }}
-                  src="https://lh3.googleusercontent.com/p/AF1QipP5M43_RYJQ7umCxZzgiIw-qo7J9Og4YtndhnuI=s680-w680-h510"
+                  src="https://media-public.canva.com/MADAoil0KKc/1/thumbnail_large-1.jpg"
                   alt="Profesional médico con paciente"
                 />
               </div>
