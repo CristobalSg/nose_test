@@ -109,7 +109,8 @@ export default function Component() {
         <ImportantCard
             title="IMPORTANTE"
             imageUrl="https://media-public.canva.com/as-LM/MAElCNas-LM/1/tl.png"
-            description="Si el usuario no responde de manera correcta puedes darle pistas, darle un tiempo, y en caso de errar de nuevo, le entregas la respuesta correcta."
+            subtitle="Si el usuario no responde de manera correcta puedes darle pistas, darle un tiempo, y en caso de errar de nuevo, le entregas la respuesta correcta."
+            paragraphText="Evita el sentimiento de culpa en el usuario, por haber errado en la respuesta."
         />
 
         <Title level={3}>También puedes: </Title>
@@ -139,12 +140,6 @@ export default function Component() {
         <ConversationItem 
             imageSrc="https://media-public.canva.com/aeAkI/MAFXLQaeAkI/1/tl.png" 
             text=" Evita conversaciones con temas problemáticos, tristes o negativos, que pudiesen alterar al usuario. "
-        />
-        
-        <DynamicTitle
-            mainTitle="¿Qué ejercicios y actividades puedo hacer con mi familiar durante la visita?"
-            subtitle="Según indicación medica, puedes realizar ejercicios de movilidad en cama, completar cuadernillos de estimulación cognitiva, o alguna otra actividad."
-            paragraphText="A continuación ¡te enseñamos cuales!"
         />
     </>
   );

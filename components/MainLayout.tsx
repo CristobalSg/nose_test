@@ -1,3 +1,5 @@
+// "use client"; // Agrega esta línea al principio del archivo
+
 import React from 'react';
 import { useState, useEffect } from 'react';
 import { Layout, Button, Drawer } from 'antd';

@@ -1,15 +1,8 @@
 import React from 'react';
-import { Typography, Card, List, Row, Col } from 'antd';
-import {
-  BulbOutlined,
-  WindowsOutlined,
-  HomeOutlined,
-  MessageOutlined,
-  ReadOutlined,
-  ExperimentOutlined,
-} from '@ant-design/icons';
+import { Typography, Card, Row, Col, Image } from 'antd';
+import DynamicTitle from '@/components/TitleWithLinesStyle';
 
-const { Title, Paragraph, Text } = Typography;
+const { Title } = Typography;
 
 const cardColors = ['#FFE0E0', '#E0FFE0', '#E0E0FF', '#E0F7FA'];
 const cardStyle = (index: number) => ({
@@ -17,115 +10,53 @@ const cardStyle = (index: number) => ({
   boxShadow: '0 2px 8px rgba(0,0,0,0.05)',
   borderRadius: '8px',
   marginBottom: '24px',
+  height: '350px', // Establece una altura fija para las tarjetas
 });
-
-// Definir el tipo para los elementos de la lista
-type InfoItem = {
-  icon: JSX.Element;
-  text: string;
-};
-
-// Datos para las tarjetas de listas
-const listItems = {
-  environment: [
-    { icon: <BulbOutlined />, text: 'Ajustar la iluminación según la hora del día' },
-    { icon: <WindowsOutlined />, text: 'Abrir o cerrar las cortinas para regular la luz natural' },
-    { icon: <HomeOutlined />, text: 'Posicionar la cama correctamente para la comodidad del paciente' },
-  ],
-  stimulation: [
-    { icon: <MessageOutlined />, text: 'Mantener conversaciones sobre temas de interés para el paciente' },
-    { icon: <ReadOutlined />, text: 'Leer y discutir noticias actuales' },
-    { icon: <ExperimentOutlined />, text: 'Realizar ejercicios de memoria y orientación temporal' },
-  ],
-};
 
 // Datos para los recursos adicionales
 const resources = [
   {
-    title: 'Ejercicios de Memoria',
-    description: 'Actividades para estimular la memoria',
-    imgSrc: 'https://media-public.canva.com/qv-Jk/MADZ40qv-Jk/2/tl.png',
+    title: 'Ejercicios de movilidad',
+    imgSrc: 'https://media-public.canva.com/qaBcU/MAF-OUqaBcU/1/tl.png',
   },
   {
-    title: 'Terapia Ocupacional',
-    description: 'Actividades diarias terapéuticas',
-    imgSrc: 'https://lh3.googleusercontent.com/p/AF1QipP5M43_RYJQ7umCxZzgiIw-qo7J9Og4YtndhnuI=s680-w680-h510',
+    title: 'Estimulación cognitiva',
+    imgSrc: 'https://media-public.canva.com/YOF4c/MAGLwaYOF4c/1/tl.png',
   },
   {
-    title: 'Estimulación Sensorial',
-    description: 'Técnicas de estimulación de los sentidos',
-    imgSrc: 'https://media-public.canva.com/wEhQo/MAFsYCwEhQo/1/tl.png',
+    title: 'Actividades básicas de la vida diaria',
+    imgSrc: 'https://media-public.canva.com/WTBu0/MAFHpMWTBu0/1/tl.png',
+  },
+  {
+    title: 'Estimulación polisensorial',
+    imgSrc: 'https://media-public.canva.com/oIBOU/MAGMeooIBOU/1/tl.png',
   },
 ];
-
-// Componente para una tarjeta con lista
-type InfoCardProps = {
-  title: string;
-  content: string;
-  items: InfoItem[];
-  index: number;
-};
-
-const InfoCard: React.FC<InfoCardProps> = ({ title, content, items, index }) => (
-  <Card style={cardStyle(index)}>
-    <Title level={3}>{title}</Title>
-    <Paragraph>{content}</Paragraph>
-    <List
-      itemLayout="horizontal"
-      dataSource={items}
-      renderItem={(item) => (
-        <List.Item>
-          <List.Item.Meta
-            avatar={item.icon}
-            title={<Text style={{ fontSize: '1.25em' }}>{item.text}</Text>}
-          />
-        </List.Item>
-      )}
-    />
-  </Card>
-);
 
 const SalePage = () => {
   return (
     <>
-      <Title level={1} style={{ textAlign: 'center', color: '#0d9488', marginBottom: '24px' }}>
-        Guía de Cuidado del Paciente
-      </Title>
-
-      <Card style={cardStyle(0)}>
-        <Title level={3}>¿Qué hacer?</Title>
-        <Paragraph style={{ fontSize: '1.25em' }}>
-          Esta guía te ayudará a manejar el ambiente del paciente y realizar ejercicios de estimulación.
-        </Paragraph>
-      </Card>
-
-      <InfoCard
-        title="Manejo del Ambiente"
-        content="Cómo ajustar el entorno del paciente"
-        items={listItems.environment}
-        index={1}
+      <DynamicTitle
+        mainTitle="¿Qué ejercicios y actividades puedo hacer con mi familiar durante la visita?"
+        subtitle="Según indicación médica, puedes realizar ejercicios de movilidad en cama, completar cuadernillos de estimulación cognitiva, o alguna otra actividad."
+        paragraphText="A continuación ¡te enseñamos cuáles!"
       />
-
-      <Card style={cardStyle(2)}>
-        <Title level={3}>¿Qué es TOR?</Title>
-        <Paragraph style={{ fontSize: '1.25em' }}>
-          TOR significa Terapia de Orientación a la Realidad. Es una técnica utilizada para ayudar a los pacientes a mantener la conciencia de su entorno y situación actual, especialmente útil en casos de confusión o deterioro cognitivo.
-        </Paragraph>
-      </Card>
-
-      <InfoCard
-        title="Ejercicios de Estimulación"
-        content="Actividades para realizar con el paciente"
-        items={listItems.stimulation}
-        index={3}
-      />
-
-      <Title level={3} style={{ marginTop: '32px', marginBottom: '16px' }}>Recursos Adicionales</Title>
-      <Row gutter={[16, 16]}>
+      <Row gutter={[16, 16]} justify="center">
         {resources.map((resource, idx) => (
-          <Col key={idx} xs={24} sm={12} md={8} lg={8}>
-            <Card hoverable cover={<img alt={resource.title} src={resource.imgSrc} />}>
-              <Card.Meta title={resource.title} description={resource.description} />
+          <Col key={idx} xs={24} sm={12} md={8} lg={6}>
+            <Card style={{ ...cardStyle(idx), height: '100%' }} hoverable>
+              {/* Contenedor de la imagen con altura fija */}
+              <div style={{ height: '200px', display: 'flex', justifyContent: 'center', marginBottom: '16px' }}>
+                <Image
+                  width={"100%"}
+                  height={"100%"}
+                  style={{ objectFit: 'contain' }}
+                  src={resource.imgSrc}
+                />
+              </div>
+              <Title level={3} style={{ textAlign: 'center', textTransform: 'uppercase', textDecoration: 'underline' }}>
+                {resource.title}
+              </Title>
             </Card>
           </Col>
         ))}

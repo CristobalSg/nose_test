@@ -14,6 +14,7 @@ const cardStyle: CSSProperties = {
   flexDirection: "column",
   justifyContent: "space-between",
   padding: "16px",
+  marginBottom: "16px"
 };
 
 interface QuestionCardProps {

@@ -76,7 +76,7 @@ const Home: NextPage = () => {
                   width={"100%"}
                   height={"100%"}
                   style={{ objectFit: 'cover' }}
-                  src="https://media-public.canva.com/wEhQo/MAFsYCwEhQo/1/tl.png"
+                  src="https://media-public.canva.com/MADewbrgSE4/1/thumbnail_large.jpg"
                   alt="Manos cuidadoras"
                 />
               </div>

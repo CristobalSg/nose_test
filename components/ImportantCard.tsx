@@ -1,7 +1,7 @@
 import React, { CSSProperties } from 'react';
 import { Card, Col, Row, Image, Typography } from 'antd';
 
-const { Title, Text } = Typography;
+const { Title, Text, Paragraph} = Typography;
 
 // Definir un estilo para que todas las tarjetas mantengan la misma altura
 const cardStyle: CSSProperties = {
@@ -16,14 +16,15 @@ const cardStyle: CSSProperties = {
 };
 
 interface ImportantCardProps {
-  title: string;
-  imageUrl: string;
-  description: string;
+  title: string
+  imageUrl: string
+  subtitle: string
+  paragraphText: string
 }
 
-const ImportantCard: React.FC<ImportantCardProps> = ({ title, imageUrl, description }) => {
+const ImportantCard: React.FC<ImportantCardProps> = ({ title, imageUrl, subtitle, paragraphText}) => {
   return (
-    <Card style={{ ...cardStyle, background: "#FFE0E0" }}>
+    <Card style={{ ...cardStyle, background: "#E0E0FF" }}>
       <Row style={{ display: "flex", alignItems: "center", justifyContent: "center" }}>
         <Col xs={24} sm={12} md={6} style={{ display: 'flex', justifyContent: 'flex-end' }}>
           <div style={{ height: '100%', display: 'flex', alignItems: 'center' }}>
@@ -51,12 +52,12 @@ const ImportantCard: React.FC<ImportantCardProps> = ({ title, imageUrl, descript
           </div>
         </Col>
       </Row>
-      <Text style={{textAlign: 'center',  fontSize: '1.25em' }} className="text-sm">
-        {description}
-      </Text>
-      <ul>
-        <li>Evita el sentimiento de culpa en el usuario, por haber errado en la respuesta.</li>
-      </ul>
+      <div className="space-y-1">
+        {subtitle && <Title level={2} className="font-semibold" style={{ fontFamily: 'Montserrat, sans-serif', fontSize: '1.35em' }}>{subtitle}</Title>}
+        {paragraphText && <Paragraph style={{ fontSize: '1.25em', fontFamily: 'Montserrat, sans-serif' }}>
+          {paragraphText}
+        </Paragraph>}
+      </div>
     </Card>
   );
 };
