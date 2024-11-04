@@ -39,7 +39,7 @@ const Home: NextPage = () => {
             </Paragraph>
             {/* Contenedor flexible para el botón */}
             <div style={{ display: 'flex', justifyContent: 'flex-end' }}>
-              <Link href="/info" passHref>
+              <Link href="/quehacer" passHref>
                 <Button
                   type="primary"
                   size="large"
@@ -61,7 +61,7 @@ const Home: NextPage = () => {
           <Row gutter={[16, 16]}>
             <Col xs={24} md={12}>
               <div style={{ height: '100%', position: 'relative' }}>
-                <Image
+                <img
                   width={"100%"}
                   height={"100%"}
                   style={{ objectFit: 'cover' }}
@@ -72,7 +72,7 @@ const Home: NextPage = () => {
             </Col>
             <Col xs={24} md={12}>
               <div style={{ height: '100%', position: 'relative' }}>
-                <Image
+                <img
                   width={"100%"}
                   height={"100%"}
                   style={{ objectFit: 'cover' }}

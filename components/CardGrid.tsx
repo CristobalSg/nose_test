@@ -53,7 +53,7 @@ const CardGrid: React.FC<CardGridProps> = ({ cardData }) => {
 
             {/* Contenedor de la imagen con altura fija */}
             <div style={{ height: '200px', display: 'flex', justifyContent: 'center', marginBottom: '16px' }}>
-              <Image
+              <img
                 width={"100%"}
                 height={"100%"}
                 style={{ objectFit: 'contain' }}

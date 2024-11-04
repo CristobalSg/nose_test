@@ -52,7 +52,7 @@ const QuestionCard: React.FC<QuestionCardProps> = ({
         <Col xs={24} sm={12} md={6}>
           <Title level={3} style={{ textAlign: 'center' }}>{title}</Title>
           <div style={{ height: '200px', display: 'flex', justifyContent: 'center', marginBottom: '16px' }}>
-            <Image width="100%" height="100%" style={{ objectFit: 'contain' }} src={imageUrl} />
+            <img width="100%" height="100%" style={{ objectFit: 'contain' }} src={imageUrl} />
           </div>
           <Text style={{ fontSize: '1.25em' }}>{description}</Text>
         </Col>
@@ -78,7 +78,7 @@ const QuestionCard: React.FC<QuestionCardProps> = ({
             {additionalImages.map((url, index) => (
               <Col xs={12} sm={12} md={12} key={index}>
                 <div style={{ height: '100%', display: 'flex', justifyContent: 'center' }}>
-                  <Image width="100%" height="100%" style={{ objectFit: 'contain' }} src={url} />
+                  <img width="100%" height="100%" style={{ objectFit: 'contain' }} src={url} />
                 </div>
               </Col>
             ))}

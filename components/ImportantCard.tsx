@@ -13,6 +13,8 @@ const cardStyle: CSSProperties = {
   flexDirection: "column",
   justifyContent: "space-between",
   padding: "16px",
+  marginTop: "100px",
+  marginBottom: "100px"
 };
 
 interface ImportantCardProps {
@@ -28,7 +30,7 @@ const ImportantCard: React.FC<ImportantCardProps> = ({ title, imageUrl, subtitle
       <Row style={{ display: "flex", alignItems: "center", justifyContent: "center" }}>
         <Col xs={24} sm={12} md={6} style={{ display: 'flex', justifyContent: 'flex-end' }}>
           <div style={{ height: '100%', display: 'flex', alignItems: 'center' }}>
-            <Image
+            <img
               width="80px"
               height="80px"
               style={{ objectFit: 'contain' }}
@@ -38,12 +40,12 @@ const ImportantCard: React.FC<ImportantCardProps> = ({ title, imageUrl, subtitle
         </Col>
         <Col xs={24} sm={12} md={6}>
           <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', height: '100%' }}>
-            <Title level={1} style={{ textAlign: 'center',  fontFamily: 'Montserrat, sans-serif' }}>{title}</Title>
+            <Title level={2} style={{ textAlign: 'center',  fontFamily: 'Montserrat, sans-serif' }}>{title}</Title>
           </div>
         </Col>
         <Col xs={24} sm={12} md={6} style={{ display: 'flex', justifyContent: 'flex-start' }}>
           <div style={{ height: '100%', display: 'flex', alignItems: 'center' }}>
-            <Image
+            <img
               width="80px"
               height="80px"
               style={{ objectFit: 'contain' }}
@@ -52,7 +54,7 @@ const ImportantCard: React.FC<ImportantCardProps> = ({ title, imageUrl, subtitle
           </div>
         </Col>
       </Row>
-      <div className="space-y-1">
+      <div className="space-y-1" style={{textAlign: "center",}}>
         {subtitle && <Title level={2} className="font-semibold" style={{ fontFamily: 'Montserrat, sans-serif', fontSize: '1.35em' }}>{subtitle}</Title>}
         {paragraphText && <Paragraph style={{ fontSize: '1.25em', fontFamily: 'Montserrat, sans-serif' }}>
           {paragraphText}

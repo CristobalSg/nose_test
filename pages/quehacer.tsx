@@ -85,13 +85,13 @@ export default function Component() {
             paragraphText="Modificar el ambiente en el cual se encuentra el paciente, ayudará a que su nivel de conciencia sea óptimo, además, ayudará al usuario a orientarse en relación a si es de día o de noche."
         />
 
-        <Title level={1} style={{textAlign: "center", marginBottom: "50px"}}>¿Cómo hacerlo?</Title>
+        <Title level={3} style={{textAlign: "center", marginBottom: "50px", fontFamily: 'Montserrat, sans-serif'}}>¿Cómo hacerlo?</Title>
 
         <CardGrid cardData={cardData} />
 
-        <div className="space-y-1">
-          <Title level={2} className="font-semibold">Terapia de orientación a la realidad</Title>
-          <Paragraph  style={{ fontSize: '1.25em', marginTop: "16px"}}>
+        <div className="space-y-1" style={{textAlign: "center", paddingTop:"100px", paddingBottom: "100px"}}>
+          <Title level={3} className="font-semibold" style={{fontFamily: 'Montserrat, sans-serif'}}>Terapia de orientación a la realidad</Title>
+          <Paragraph  style={{ fontSize: '1.15em', marginTop: "16px", fontFamily: 'Montserrat, sans-serif'}}>
             Técnicas mediante las cuales la persona tomará conciencia de su situación en el tiempo, espacio 
             y persona. proporcionando a la persona una mejor comprensión de sí mismo y del mundo que le rodea.
           </Paragraph>
@@ -129,7 +129,7 @@ export default function Component() {
             text="Conversar o contarle sobre temas relacionados a su Familia (puedes apoyarte de fotos)."
         />
         
-        <Title level={4} style={{display: "flex", alignItems: 'center', justifyContent: 'center'}}>
+        <Title level={4} style={{textAlign: "center",display: "flex", alignItems: 'center', justifyContent: 'center'}}>
         Esto lo puedes realizar independiente del estado de conciencia que tenga tu familiar 
         </Title>
 
