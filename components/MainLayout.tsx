@@ -1,8 +1,7 @@
-// "use client"; // Agrega esta línea al principio del archivo
+"use client";
 
-import React from 'react';
-import { useState, useEffect } from 'react';
-import { Layout, Button, Drawer } from 'antd';
+import React, { useState, useEffect } from 'react';
+import { Layout, Button, Drawer, Row, Col } from 'antd';
 import { HomeOutlined, InfoCircleOutlined, MenuOutlined } from '@ant-design/icons';
 import Link from 'next/link';
 
@@ -14,108 +13,96 @@ type MainLayoutProps = {
 
 const MainLayout: React.FC<MainLayoutProps> = ({ children }) => {
   const [selected, setSelected] = useState('');
-  const [contentPadding, setContentPadding] = useState('0 48px');
+  const [isDrawerVisible, setIsDrawerVisible] = useState(false); // Estado para el Drawer
 
   const handleSelect = (value: string) => {
     setSelected(value);
   };
 
-  // Manejo del cambio de tamaño de la ventana
-  useEffect(() => {
-    const handleResize = () => {
-      setContentPadding(window.innerWidth < 768 ? '0 24px' : '0 48px');
-    };
-
-    handleResize(); // Llama la función al cargar el componente
-    window.addEventListener('resize', handleResize); // Escucha el cambio de tamaño de la ventana
-
-    return () => window.removeEventListener('resize', handleResize); // Limpieza del efecto
-  }, []);
+  const handleDrawerOpen = () => setIsDrawerVisible(true);
+  const handleDrawerClose = () => setIsDrawerVisible(false);
 
   return (
     <Layout>
       <Header style={headerStyle}>
         <div className="logo" style={logoStyle}>
-          <img
-            src="https://media-public.canva.com/-1js8/MAEq6P-1js8/1/s.svg" 
-            alt="Cuidado del paciente" 
-            style={logoImageStyle}
-          />
+          <img src="https://media-public.canva.com/-1js8/MAEq6P-1js8/1/s.svg" alt="Cuidado del paciente" style={logoImageStyle} />
           <span className="header-title">LA BUENA VISITA</span>
         </div>
 
         <nav className="nav-buttons" style={navStyle}>
-          <Link href="/" passHref>
-            <Button
-              type="link"
-              style={{
-                fontWeight: selected === 'home' ? 'bold' : 'normal',
-                textDecoration: selected === 'home' ? 'underline' : 'none',
-                color: 'black',
-                fontSize: '1.25em',
-              }}
-              onClick={() => handleSelect('home')}
-            >
-              INICIO
-            </Button>
-          </Link>
-          <Link href="/quehacer" passHref>
-            <Button
-              type="link"
-              style={{
-                fontWeight: selected === 'quehacer' ? 'bold' : 'normal',
-                textDecoration: selected === 'quehacer' ? 'underline' : 'none',
-                color: 'black',
-                fontSize: '1.25em',
-              }}
-              onClick={() => handleSelect('quehacer')}
-            >
-              ¿QUÉ HACER?
-            </Button>
-          </Link>
-          <Link href="/info" passHref>
-            <Button
-              type="link"
-              style={{
-                fontWeight: selected === 'info' ? 'bold' : 'normal',
-                textDecoration: selected === 'info' ? 'underline' : 'none',
-                color: 'black',
-                fontSize: '1.25em',
-              }}
-              onClick={() => handleSelect('info')}
-            >
-              INFO
-            </Button>
-          </Link>
-        </nav>
+            <Link href="/" passHref>
+              <Button
+                type="link"
+                style={{
+                  fontWeight: selected === 'home' ? 'bold' : 'normal',
+                  textDecoration: selected === 'home' ? 'underline' : 'none',
+                  color: 'black',
+                  fontSize: '1.25em',
+                }}
+                onClick={() => handleSelect('home')}
+              >
+                INICIO
+              </Button>
+            </Link>
+            <Link href="/quehacer" passHref>
+              <Button
+                type="link"
+                style={{
+                  fontWeight: selected === 'quehacer' ? 'bold' : 'normal',
+                  textDecoration: selected === 'quehacer' ? 'underline' : 'none',
+                  color: 'black',
+                  fontSize: '1.25em',
+                }}
+                onClick={() => handleSelect('quehacer')}
+              >
+                ¿QUÉ HACER?
+              </Button>
+            </Link>
+            <Link href="/info" passHref>
+              <Button
+                type="link"
+                style={{
+                  fontWeight: selected === 'info' ? 'bold' : 'normal',
+                  textDecoration: selected === 'info' ? 'underline' : 'none',
+                  color: 'black',
+                  fontSize: '1.25em',
+                }}
+                onClick={() => handleSelect('info')}
+              >
+                INFO
+              </Button>
+            </Link>
+          </nav>
 
-        {/* Botón de menú para pantallas pequeñas */}
-        <Button
-          type="text"
-          icon={<MenuOutlined />}
-          style={{ display: 'none' }}
-          className="menu-button"
-        />
+        <Button type="text" icon={<MenuOutlined />} className="menu-button" onClick={handleDrawerOpen} /> {/* Menú hamburguesa */}
         
-        {/* Drawer para navegación en dispositivos móviles */}
-        <Drawer title="LA BUENA VISITA" placement="right">
-          <Link href="/" passHref>
-            <Button type="link" icon={<HomeOutlined />}>INICIO</Button>
-          </Link>
-          <Link href="/info" passHref>
-            <Button type="link" icon={<InfoCircleOutlined />}>INFORMACIÓN</Button>
-          </Link>
+        <Drawer title="LA BUENA VISITA" placement="right" onClose={handleDrawerClose} open={isDrawerVisible}>
+          <Link href="/" passHref><Button type="link" icon={<HomeOutlined />} onClick={handleDrawerClose}>INICIO</Button></Link>
+          <Link href="/quehacer" passHref><Button type="link" icon={<InfoCircleOutlined />} onClick={handleDrawerClose}>¿QUÉ HACER?</Button></Link>
+          <Link href="/info" passHref><Button type="link" icon={<InfoCircleOutlined />}onClick={handleDrawerClose}>INFO</Button></Link>
         </Drawer>
       </Header>
 
-      <Content style={{ ...contentStyle, padding: contentPadding }}>
-        <div style={contentContainerStyle}>
+      <Content style={{ ...contentStyle}}>
+        <div className="cont-style" style={contentContainerStyle}>
           {children}
         </div>
       </Content>
 
       <Footer style={{ textAlign: 'center' }}>
-        Titulo ©{new Date().getFullYear()} Creado por Krishna Pavez Torres
+        <Row>
+          <Col xs={12} md={12} sm={12}>
+            <p>Complejo Asistencial Padre Las Casas</p>
+            <p>(CAPLC) {new Date().getFullYear()}</p>
+          </Col>
+          <Col xs={12} md={12} sm={12}>
+            <p style={{ fontWeight: 'bold' }}>Creado por:</p>
+            <p>Krishna Pavez T.</p>
+            <p>Pia Maldonado B.</p>
+            <p>Natalia Fuentealba S.</p>
+          </Col>
+        </Row>
       </Footer>
     </Layout>
   );
@@ -145,23 +132,24 @@ const logoImageStyle = {
 };
 
 const navStyle = {
-  display: 'flex',
+  // display: 'flex',
   gap: '10px',
 };
 
 const contentStyle = {
   minHeight: '100vh',
   background: '#F0F8FF',
-  fontSize: '1.25em'
+  fontSize: '1.25em',
+  // padding: "0 40px"
 };
 
 const contentContainerStyle = {
-    marginTop: 24,
-    background: 'white',
-    minHeight: 280,
-    padding: 24,
-    borderRadius: '12px',
-    boxShadow: '0 4px 12px rgba(0,0,0,0.05)',
+  marginTop: 20,
+  background: 'white',
+  minHeight: 280,
+  padding: 24,
+  borderRadius: '12px',
+  boxShadow: '0 4px 12px rgba(0,0,0,0.05)',
 };
 
 export default MainLayout;

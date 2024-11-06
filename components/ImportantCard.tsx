@@ -13,8 +13,8 @@ const cardStyle: CSSProperties = {
   flexDirection: "column",
   justifyContent: "space-between",
   padding: "16px",
-  marginTop: "100px",
-  marginBottom: "100px"
+  // marginTop: "4rem",
+  marginBottom: "4rem"
 };
 
 interface ImportantCardProps {

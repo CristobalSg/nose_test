@@ -7,7 +7,7 @@ const { Title, Text } = Typography;
 // Estilo para centrar el título
 const centeredTitleStyle: CSSProperties = {
   textAlign: "center",
-  fontSize: "2em",
+  // fontSize: "2em",
   color: "#333",
   marginBottom: "16px",
 };
@@ -60,7 +60,7 @@ const CardGrid: React.FC<CardGridProps> = ({ cardData }) => {
                 src={card.imgSrc}
               />
             </div>
-            <Text style={{ fontSize: '1.25em', fontFamily: 'Montserrat, sans-serif'}} className="text-sm">{card.description}</Text>
+            <Text style={{ fontFamily: 'Montserrat, sans-serif'}} className="text-sm">{card.description}</Text>
           </Card>
         </Col>
       ))}

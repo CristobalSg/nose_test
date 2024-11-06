@@ -10,7 +10,7 @@ const cardStyle = (index: number, isHovered: boolean) => ({
   boxShadow: isHovered ? '0 4px 16px rgba(0, 0, 0, 0.2)' : '0 2px 8px rgba(0, 0, 0, 0.05)', // Cambia la sombra según el hover
   borderRadius: '8px',
   marginBottom: '24px',
-  height: '350px', // Establece una altura fija para las tarjetas
+  // height: '100%', // Establece una altura fija para las tarjetas
 });
 
 // Datos para los recursos adicionales
@@ -18,22 +18,22 @@ const resources = [
   {
     title: 'Ejercicios de movilidad',
     imgSrc: 'https://media-public.canva.com/qaBcU/MAF-OUqaBcU/1/tl.png',
-    href: "https://www.canva.com/design/DAGS6e2_NkY/nZe_rUvLnyKBSivrPbWTMQ/view?utm_content=DAGS6e2_NkY&utm_campaign=designshare&utm_medium=link&utm_source=editor"
+    href: "https://www.canva.com/design/DAGVEcaSHC8/mv9ByQrPfmIw6_gdedslhA/view?utm_content=DAGVEcaSHC8&utm_campaign=designshare&utm_medium=link&utm_source=editor#1"
   },
   {
     title: 'Estimulación cognitiva',
     imgSrc: 'https://media-public.canva.com/YOF4c/MAGLwaYOF4c/1/tl.png',
-    href: "https://www.canva.com/design/DAGS6e2_NkY/nZe_rUvLnyKBSivrPbWTMQ/view?utm_content=DAGS6e2_NkY&utm_campaign=designshare&utm_medium=link&utm_source=editor"
+    href: "/"
   },
   {
-    title: 'Actividades básicas de la vida diaria',
+    title: 'AActividades básicas de la vida diariactividades básicas de la vida diaria',
     imgSrc: 'https://media-public.canva.com/WTBu0/MAFHpMWTBu0/1/tl.png',
     href: "https://www.canva.com/design/DAGS6e2_NkY/nZe_rUvLnyKBSivrPbWTMQ/view?utm_content=DAGS6e2_NkY&utm_campaign=designshare&utm_medium=link&utm_source=editor"
   },
   {
     title: 'Estimulación polisensorial',
     imgSrc: 'https://media-public.canva.com/oIBOU/MAGMeooIBOU/1/tl.png',
-    href: "https://www.canva.com/design/DAGS6e2_NkY/nZe_rUvLnyKBSivrPbWTMQ/view?utm_content=DAGS6e2_NkY&utm_campaign=designshare&utm_medium=link&utm_source=editor"
+    href: "https://www.canva.com/design/DAGUnM9at5g/iuFgUrjFqPzUHWT-ngcsKA/view?utm_content=DAGUnM9at5g&utm_campaign=designshare&utm_medium=link&utm_source=editor"
   },
 ];
 
@@ -67,7 +67,7 @@ const SalePage = () => {
                       src={resource.imgSrc}
                     />
                   </div>
-                  <Title level={3} style={{ textAlign: 'center', textTransform: 'uppercase', textDecoration: 'underline' }}>
+                  <Title style={{fontSize: "1.25rem" ,textAlign: 'center', textTransform: 'uppercase', textDecoration: 'underline' }}>
                     {resource.title}
                   </Title>
                 </Card>

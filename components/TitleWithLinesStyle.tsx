@@ -10,20 +10,21 @@ const titleWithLinesStyle: React.CSSProperties = {
   alignItems: "center",
   justifyContent: "center",
   color: "#333",
-  marginBottom: "16px",
+  marginBottom: "1rem"
 };
 
 // Estilo para el contenedor del componente
 const containerStyle: React.CSSProperties = {
-  padding: "20px",
+  // padding: "20px",
+
   textAlign: "center",
   maxWidth: "800px",
-  margin: "0 auto",
+  margin: "1rem auto",
 };
 
 // Props para el componente
 interface DynamicTitleProps {
-  mainTitle: string;
+  mainTitle?: string;
   subtitle?: string;
   paragraphText?: string;
 }
@@ -39,13 +40,13 @@ const DynamicTitle: FC<DynamicTitleProps> = ({ mainTitle, subtitle, paragraphTex
   useEffect(() => {
     const handleResize = () => {
       if (window.innerWidth < 768) { // Tamaño de pantalla móvil
-        setMainFontSize("1.1em"); // Tamaño de fuente reducido para el título principal
-        setSubtitleFontSize("1em"); // Tamaño de fuente reducido para el subtítulo
-        setParagraphFontSize("0.9em"); // Tamaño de fuente reducido para el párrafo
+        setMainFontSize("1.25rem"); // Tamaño fuente principal
+        setSubtitleFontSize("1.075rem"); // Tamaño fuente subtítulo
+        setParagraphFontSize("1rem"); // Tamaño fuente párrafo
       } else {
-        setMainFontSize("1.5em"); // Tamaño de fuente normal para el título principal
-        setSubtitleFontSize("1.35em"); // Tamaño de fuente normal para el subtítulo
-        setParagraphFontSize("1.25em"); // Tamaño de fuente normal para el párrafo
+        setMainFontSize("1.5rem"); // Tamaño de fuente normal para el título principal
+        setSubtitleFontSize("1.125rem"); // Tamaño de fuente normal para el subtítulo
+        setParagraphFontSize("1rem"); // Tamaño de fuente normal para el párrafo 
       }
     };
 
@@ -57,16 +58,17 @@ const DynamicTitle: FC<DynamicTitleProps> = ({ mainTitle, subtitle, paragraphTex
 
   return (
     <div style={containerStyle}>
-      {/* Título principal con líneas decorativas */}
-      <div style={{ ...titleWithLinesStyle, fontSize: mainFontSize }}>
-        <span style={{ borderBottom: "1px solid #333", width: "20%" }}></span>
-        <Title level={1} className="text-primary" style={{ margin: "0 10px", fontFamily: 'Montserrat, sans-serif', fontSize: mainFontSize }}>
-          {mainTitle}
-        </Title>
-        <span style={{ borderBottom: "1px solid #333", width: "20%" }}></span>
-      </div>
-      
-      <div className="space-y-1" style={{paddingTop: "30px"}} >
+      {mainTitle && (
+        <div style={{ ...titleWithLinesStyle, fontSize: mainFontSize }}>
+          <span style={{ borderBottom: "1px solid #333", width: "20%" }}></span>
+          <Title level={1} className="text-primary" style={{ margin: "0 10px", fontFamily: 'Montserrat, sans-serif', fontSize: mainFontSize }}>
+            {mainTitle}
+          </Title>
+          <span style={{ borderBottom: "1px solid #333", width: "20%" }}></span>
+        </div>
+      )}
+
+      <div className="space-y-1" style={{paddingTop: "1rem", paddingInline: "1rem"}} >
         {subtitle && (
           <Title level={2} className="font-semibold" style={{ fontFamily: 'Montserrat, sans-serif', fontSize: subtitleFontSize }}>
             {subtitle}

@@ -1,4 +1,4 @@
-import { Card, Row, Col, Typography, Image } from "antd";
+import { Card, Row, Col, Typography, Image, Divider } from "antd";
 import { CSSProperties } from "react";
 import QuestionCard from '../components/QuestionCard'; 
 import ImportantCard from '../components/ImportantCard'; 
@@ -85,17 +85,23 @@ export default function Component() {
             paragraphText="Modificar el ambiente en el cual se encuentra el paciente, ayudará a que su nivel de conciencia sea óptimo, además, ayudará al usuario a orientarse en relación a si es de día o de noche."
         />
 
-        <Title level={3} style={{textAlign: "center", marginBottom: "50px", fontFamily: 'Montserrat, sans-serif'}}>¿Cómo hacerlo?</Title>
+        {/* <Title style={{textAlign: "center", marginBottom: "50px", fontFamily: 'Montserrat, sans-serif'}}>¿Cómo hacerlo?</Title> */}
 
         <CardGrid cardData={cardData} />
 
-        <div className="space-y-1" style={{textAlign: "center", paddingTop:"100px", paddingBottom: "100px"}}>
+        <Divider style={{marginBlock: "4rem"}}></Divider>
+
+        <DynamicTitle subtitle="Terapia de orientación a la realidad"
+        paragraphText="Técnicas mediante las cuales la persona tomará conciencia de su situación en el tiempo, espacio 
+            y persona. proporcionando a la persona una mejor comprensión de sí mismo y del mundo que le rodea."/>
+        
+        {/* <div className="space-y-1" style={{textAlign: "center", paddingTop:"100px", paddingBottom: "100px"}}>
           <Title level={3} className="font-semibold" style={{fontFamily: 'Montserrat, sans-serif'}}>Terapia de orientación a la realidad</Title>
           <Paragraph  style={{ fontSize: '1.15em', marginTop: "16px", fontFamily: 'Montserrat, sans-serif'}}>
             Técnicas mediante las cuales la persona tomará conciencia de su situación en el tiempo, espacio 
             y persona. proporcionando a la persona una mejor comprensión de sí mismo y del mundo que le rodea.
           </Paragraph>
-        </div>
+        </div> */}
 
         <QuestionCard
             title="Preguntar"
@@ -106,6 +112,8 @@ export default function Component() {
             additionalImages={additionalImages}
         />
 
+        <Divider style={{marginBlock: "4rem"}}></Divider>
+
         <ImportantCard
             title="IMPORTANTE"
             imageUrl="https://media-public.canva.com/as-LM/MAElCNas-LM/1/tl.png"
@@ -113,7 +121,10 @@ export default function Component() {
             paragraphText="Evita el sentimiento de culpa en el usuario, por haber errado en la respuesta."
         />
 
-        <Title level={3}>También puedes: </Title>
+        {/* <Title level={3}>También puedes: </Title> */}
+        <DynamicTitle
+          subtitle="También puedes:"
+        />
 
         <ConversationItem 
             imageSrc="https://media-public.canva.com/oPB90/MAFdMNoPB90/1/tl.png" 
@@ -129,9 +140,11 @@ export default function Component() {
             text="Conversar o contarle sobre temas relacionados a su Familia (puedes apoyarte de fotos)."
         />
         
-        <Title level={4} style={{textAlign: "center",display: "flex", alignItems: 'center', justifyContent: 'center'}}>
+        <Paragraph style={{textAlign: "center",display: "flex", alignItems: 'center', justifyContent: 'center', fontWeight: 'bold'}}>
         Esto lo puedes realizar independiente del estado de conciencia que tenga tu familiar 
-        </Title>
+        </Paragraph>
+
+        <Divider style={{marginBlock: "4rem"}}></Divider>
 
         <DynamicTitle
             mainTitle="¿Qué evitar hacer con tu familiar durante la visita en el hospital?"

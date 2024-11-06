@@ -10,22 +10,25 @@ const Home: NextPage = () => {
     <>
       <Row gutter={[16, 16]}>
         <Col xs={24} md={16}>
-          <div style={{ height: '400px', position: 'relative' }}>
-            <Image
+          <div className="cont-img-home">
+            <img
+              className='img-caplc'
               width={"100%"}
               height={"100%"}
-              style={{ objectFit: 'cover' }}
+              style={{maxHeight: "100%", objectFit: 'cover' }}
               src="https://arc-anglerfish-arc2-prod-copesa.s3.amazonaws.com/public/W7NHXNFA2RCNXHZ7MRS2ZTSICE.jpg"
             />
           </div>
         </Col>
         <Col xs={24} md={8}>
-          <div style={{ height: '400px', position: 'relative' }}>
+          <div className="cont-img-home">
             <Image
               width={"100%"}
               height={"100%"}
-              style={{ objectFit: 'cover' }}
-              src="https://lh3.googleusercontent.com/p/AF1QipP5M43_RYJQ7umCxZzgiIw-qo7J9Og4YtndhnuI=s680-w680-h510"
+              style={{
+                objectFit: 'cover',
+              }}
+              src="/images/logo.png"
               alt="Manual de la Buena Visita Logo"
             />
           </div>
@@ -59,7 +62,7 @@ const Home: NextPage = () => {
         </Col>
         <Col xs={24} md={8}>
           <Row gutter={[16, 16]}>
-            <Col xs={24} md={12}>
+            <Col xs={12} md={12}>
               <div style={{ height: '100%', position: 'relative' }}>
                 <img
                   width={"100%"}
@@ -70,7 +73,7 @@ const Home: NextPage = () => {
                 />
               </div>
             </Col>
-            <Col xs={24} md={12}>
+            <Col xs={12} md={12}>
               <div style={{ height: '100%', position: 'relative' }}>
                 <img
                   width={"100%"}
